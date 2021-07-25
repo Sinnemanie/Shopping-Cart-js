@@ -1,9 +1,10 @@
+"use strict"
 // ***************************************************
 // Shopping Cart functions
 
-var shoppingCart = (function () {
+let shoppingCart = (function () {
     // Private methods and properties
-    var cart = [];
+    let cart = [];
 
     function Item(name, price, count) {
         this.name = name
@@ -13,6 +14,8 @@ var shoppingCart = (function () {
 
     function saveCart() {
         localStorage.setItem("shoppingCart", JSON.stringify(cart));
+
+        // console.log(JSON.stringify(cart));
     }
 
     function loadCart() {
@@ -25,12 +28,16 @@ var shoppingCart = (function () {
     loadCart();
 
 
-
-    // Public methods and properties
-    var obj = {};
-
+    /**
+     * @description // Public methods and properties
+     * @param {*} name 
+     * @param {*} price 
+     * @param {*} count 
+     * @returns 
+     */
+    let obj = {};
     obj.addItemToCart = function (name, price, count) {
-        for (var i in cart) {
+        for (let i in cart) {
             if (cart[i].name === name) {
                 cart[i].count += count;
                 saveCart();
@@ -40,13 +47,18 @@ var shoppingCart = (function () {
 
         console.log("addItemToCart:", name, price, count);
 
-        var item = new Item(name, price, count);
+        let item = new Item(name, price, count);
         cart.push(item);
         saveCart();
     };
 
+    /**
+     * @description
+     * @param {*} name 
+     * @param {*} count 
+     */
     obj.setCountForItem = function (name, count) {
-        for (var i in cart) {
+        for (let i in cart) {
             if (cart[i].name === name) {
                 cart[i].count = count;
                 break;
@@ -56,10 +68,14 @@ var shoppingCart = (function () {
     };
 
 
-    obj.removeItemFromCart = function (name) { // Removes one item
-        for (var i in cart) {
-            if (cart[i].name === name) { // "3" === 3 false
-                cart[i].count--; // cart[i].count --
+    /**
+     * @description Removes one item
+     * @param {*} name 
+     */
+    obj.removeItemFromCart = function (name) {
+        for (let i in cart) {
+            if (cart[i].name === name) {
+                cart[i].count--;
                 if (cart[i].count === 0) {
                     cart.splice(i, 1);
                 }
@@ -69,9 +85,12 @@ var shoppingCart = (function () {
         saveCart();
     };
 
-
-    obj.removeItemFromCartAll = function (name) { // removes all item name
-        for (var i in cart) {
+    /**
+     * @description removes all item name
+     * @param {*} name 
+     */
+    obj.removeItemFromCartAll = function (name) {
+        for (let i in cart) {
             if (cart[i].name === name) {
                 cart.splice(i, 1);
                 break;
@@ -80,39 +99,73 @@ var shoppingCart = (function () {
         saveCart();
     };
 
-
+    /**
+     * @description clear Cart
+     */
     obj.clearCart = function () {
         cart = [];
         saveCart();
     }
 
-
-    obj.countCart = function () { // -> return total count
-        var totalCount = 0;
-        for (var i in cart) {
+    /**
+     * @description Cart Counter return total count
+     * @returns totalCount
+     */
+    obj.countCart = function () {
+        let totalCount = 0;
+        for (let i in cart) {
             totalCount += cart[i].count;
         }
 
         return totalCount;
     };
 
+    /**
+     * @description correct number format
+     * @returns totalCost
+     */
     obj.totalCart = function () { // -> return total cost
-        var totalCost = 0;
-        for (var i in cart) {
+        let totalCost = 0;
+        for (let i in cart) {
             totalCost += cart[i].price * cart[i].count;
         }
         return totalCost.toFixed(2);
     };
 
+    obj.discountCart = function (discount) { // -> return discount cost
+        let totalCost = 0;
+        for (let i in cart) {
+            totalCost += (cart[i].price * cart[i].count) * ((100 - discount) / 100);
+        }
+        return totalCost.toFixed(2);
+    };
+
+    obj.voucherCart = function (voucher) { // -> return total cost
+        let totalCost = 0;
+
+        for (let i in cart) {
+            totalCost += (cart[i].price * cart[i].count) - voucher;
+        }
+        return totalCost.toFixed(2);
+    };
+
+    /**
+     * 
+     * @returns array of items
+     */
     obj.listCart = function () { // -> array of Items
-        var cartCopy = [];
-        console.log("Listing cart");
-        console.log(cart);
-        for (var i in cart) {
-            console.log(i);
-            var item = cart[i];
-            var itemCopy = {};
-            for (var p in item) {
+        let cartCopy = [];
+
+        // console.log("Listing cart");
+        // console.log(cart);
+
+        for (let i in cart) {
+
+            // console.log(i);
+
+            let item = cart[i];
+            let itemCopy = {};
+            for (let p in item) {
                 itemCopy[p] = item[p];
             }
             itemCopy.total = (item.price * item.count).toFixed(2);
@@ -124,7 +177,3 @@ var shoppingCart = (function () {
     // ----------------------------
     return obj;
 })();
-
-
-
-
