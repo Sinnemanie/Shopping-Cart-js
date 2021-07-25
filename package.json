@@ -1,0 +1,17 @@
+{
+  "name": "Shopping-Cart.js Fork Webdesigner",
+  "version": "1.0.0",
+  "description": "shopping cart single app with JS, HTML and Bootstrap",
+  "main": "artikel.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Katja Stelmaszyk",
+  "license": "ISC",
+  "devDependencies": {
+    "bootswatch": "^5.0.2",
+    "faker": "^5.5.3",
+    "holderjs": "^2.9.9",
+    "jquery": "^3.6.0"
+  }
+}
