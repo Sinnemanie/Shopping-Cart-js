@@ -1,26 +1,26 @@
-# Shopping-Cart-js
+# Coding Challenge Shopping Cart Prototyp
 
-This example is the completed project that is covered in this series of videos. The video tutorials cover the process of 
-building the shopping cart from beginning to end. The process covers many of the basic features of JavaScript. It also 
-builds the shopping cart system in many itereations explaing problems, and their solutions along the way. Hopefully this 
-explains why methods and approaches were used better than starting with the final version. 
+# Installing
 
-[Shopping Car Tutorial Playlist](https://www.youtube.com/watch?v=1Q74A6ZQxdY&list=PLoN_ejT35AEhzNoPStBzAkpqAu3YQwPj7)
+install dependencies
 
-## Goals
+* [npm](https://npmjs.com/): `npm install`
 
-The real goal of these videos and this example is to teach basic JavaScript through a practical real world, and interesting 
-example that wide range of people can relate to. Who hasn't used an online shopping cart? Here you can make your own, and 
-see what is happening behind the scenes. You can apply your everyday experiences into learning the basics of JavaScript and
-see ho they translate into code. 
+# Libraries Dependencies docs
+* [Bootstrap 5.0](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+* [Bootswatch](https://github.com/thomaspark/bootswatch/)
+* [jquery](https://github.com/jquery/jquery)
+* [holderJS](https://github.com/imsky/holder) for placeholder images
+* [Vanilla JS | mozilla.org](https://developer.mozilla.org/en-US/docs/Web/JavaScript):
 
-While a large heavily trafficed site would use a complex framework, the ideas here are still very applicable. I feel 
-understand the ideas here will give you a foundational understaning of JavaScript. 
+# Spezifikation
 
-Speaking of frameworks, this project does use jQuery. This is an industry standard framework, that makes many basic tasks 
-easier to accomplish. 
+* [artiklel.js](./src/artikel.js): contains product data and category array (optional)
+* [artiklel.js](./src/artikel.js): contains product data and category array (optional)
+* 
 
-## Features
+
+# Features
 
 The shopping cart covered in these vides is built with JavaScript, it also uses jQuery. 
 
@@ -35,7 +35,7 @@ The shopping cart, in it's finsihed form will be able to:
 *Display the total cost of all items in the cart
 *Save the cart to local storage, persisting the cart between browsing sessions
 
-## JavaScript Concepts covered
+# JavaScript Concepts covered
 
 * Where to put the script tag, and why
 * Varaibles and values
@@ -61,7 +61,7 @@ This example is really focussed on frontend. The cart will not make purchases, o
 web sites. You could use this is as a starting point to building something larger, but features presented here are focussed
 only on the frontend functionality of the cart. 
 
-## API 
+# API 
 
 Creates a single variable shoppingCart and all methods are accessed from this. 
 
